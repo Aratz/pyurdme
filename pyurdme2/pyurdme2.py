@@ -1062,7 +1062,7 @@ class URDMEMesh(dolfin.Mesh):
             if 'constrained_domain' in state and state['constrained_domain'] is not None:
                 # Black magic to match that in __getstate__
                 cdd = state['constrained_domain']
-                compiled_class = compile(cdd['source'], 'pyurdme.mesh.constrained_domain', 'exec')
+                compiled_class = compile(cdd['source'], 'pyurdme2.mesh.constrained_domain', 'exec')
                 eval(compiled_class)
                 compiled_object = eval("{0}()".format(cdd['name']))
                 for k, v in cdd['dict'].iteritems():
